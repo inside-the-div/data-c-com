@@ -1,0 +1,293 @@
+/* YOUR CUSTOM CSS */
+
+body{
+	color:#000;
+}
+p,h1,h2,h3,h4,h5,h6,ul,a{
+	margin: 0px;
+}
+
+.page-title-area h1{
+	display: inline-block;
+	padding: 0px 30px;
+}
+
+.page-title-area a,input{
+	display: inline-block;
+	padding: 3px 20px;
+	background: red;
+	font-size: 18px;
+	color: #fff;
+	background: #333;
+	border-radius: 20px;
+  border:0px;
+	
+}
+
+.page-title-area .btn-2{
+  background: #28a745;
+  
+}
+.page-title-area .btn-3{
+  background: #dc3545;
+}
+
+
+
+
+.page-title-area div{
+	display: inline-block;
+	padding-right: 50px;
+}
+
+
+/*check box*/
+
+/* This css is for normalizing styles. You can skip this. */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+ 
+}
+
+
+
+
+.new {
+  padding: 50px;
+}
+
+.form-group {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.form-group label {
+  position: relative;
+  cursor: pointer;
+}
+
+.form-group label:before {
+  content:'';
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid #0079bf;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.form-group input:checked + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 9px;
+  width: 6px;
+  height: 14px;
+  border: solid #0079bf;
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
+}
+
+
+
+
+/*email admin*/
+
+.single-email{
+  border: 1px solid rgba(0,0,0,0.125);
+  border-top-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  position: relative;
+}
+
+.single-email .number{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  /*width: 25px;*/
+  height: 25px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 25px;
+  font-size: 18px;
+}
+
+.single-email .user-email{
+  color: rgba(0,0,0,0.6);
+}
+.single-email:hover .user-email{
+  color: rgba(0,0,0,1);
+}
+
+
+.single-email .single-email-btn{
+  display: inline-block;
+  font-size: 18px;
+  padding: 4px 20px;
+  padding-bottom: 1px;
+  background: red;
+  border-radius: 30px;
+  color: #fff;
+
+}
+.active-comment{
+  background: #e9ffe4;
+}
+
+
+#post_body ol{
+  margin-left: 10px !important;
+}
+
+.note-toolbar-wrapper{
+  position: absolute !important;
+  /*top: 100%;*/
+  bottom: 10px !important;
+  left: 0px !important;
+  width: 100% !important;
+  
+}
+.note-toolbar-wrapper .note-toolbar{
+  background: #212529;
+}
+
+
+/*permission*/
+.toggleCheck { position:relative; }
+.toggleCheck *,
+.toggleCheck *:before,
+.toggleCheck *:after { box-sizing:border-box; }
+
+.toggleCheck input[type="checkbox"] { display:none; }
+.toggleCheck input[type="checkbox"][disabled] ~ label { pointer-events:none; }
+.toggleCheck input[type="checkbox"][disabled] ~ label .toggleCheck_switch { opacity:0.4; }
+.toggleCheck input[type="checkbox"]:checked ~ label .toggleCheck_switch:before { content:attr(data-unchecked); left:0; }
+.toggleCheck input[type="checkbox"]:checked ~ label .toggleCheck_switch:after { content:attr(data-checked); }
+.toggleCheck label { -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; position:relative; display:-webkit-box; display:flex; -webkit-box-align:center; align-items:center; }
+
+.toggleCheck label .toggleCheck_switch { position:relative; }
+.toggleCheck label .toggleCheck_switch:before { content:attr(data-checked); position:absolute; top:0; text-transform:uppercase; text-align:center; }
+.toggleCheck label .toggleCheck_switch:after { content:attr(data-unchecked); position:absolute; text-transform:uppercase; text-align:center; background:#fff; z-index:5; -webkit-transform:translate3d(0, 0, 0); transform:translate3d(0, 0, 0); }
+
+
+.toggleCheck label .toggleCheck_switch { -webkit-transition:background 0.3s cubic-bezier(0, 1, 0.5, 1); transition:background 0.3s cubic-bezier(0, 1, 0.5, 1); background:#848484; }
+.toggleCheck label .toggleCheck_switch:before { color:rgba(255, 255, 255, 0.5); }
+.toggleCheck label .toggleCheck_switch:after { -webkit-transition:-webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1); transition:-webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1); transition:transform 0.3s cubic-bezier(0, 1, 0.5, 1); -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1); color:#777; }
+
+.toggleCheck input[type="checkbox"]:focus ~ label .toggleCheck_switch:after,
+.toggleCheck input[type="checkbox"]:hover ~ label .toggleCheck_switch:after { box-shadow:0 3px 3px rgba(0, 0, 0, 0.4); }
+.toggleCheck input[type="checkbox"]:checked ~ label .toggleCheck_switch:after { -webkit-transform:translate3d(65px, 0, 0); transform:translate3d(65px, 0, 0); }
+.toggleCheck input[type="checkbox"]:checked:focus ~ label .toggleCheck_switch:after,
+.toggleCheck input[type="checkbox"]:checked:hover ~ label .toggleCheck_switch:after { box-shadow:0 3px 3px rgba(0, 0, 0, 0.4); }
+.toggleCheck label { font-size:14px; }
+.toggleCheck label .toggleCheck_switch { height:36px; -webkit-box-flex:0; flex:0 0 134px; border-radius:4px; }
+.toggleCheck label .toggleCheck_switch:before { left:67px; font-size:12px; line-height:36px; width:67px; padding:0 12px; }
+.toggleCheck label .toggleCheck_switch:after { top:2px; left:2px; border-radius:2px; width:65px; line-height:32px; font-size:12px; }
+.toggleCheck label .toggleCheck_switch:hover:after { box-shadow:0 3px 3px rgba(0, 0, 0, 0.4); }
+
+
+.toggleCheck.chk3 input[type="checkbox"][disabled] ~ label { color:rgba(68, 68, 68, 0.5); }
+.toggleCheck.chk3 input[type="checkbox"]:focus ~ label .toggleCheck_switch,
+.toggleCheck.chk3 input[type="checkbox"]:hover ~ label .toggleCheck_switch { background:#444; }
+.toggleCheck.chk3 input[type="checkbox"]:focus ~ label .toggleCheck_switch:after,
+.toggleCheck.chk3 input[type="checkbox"]:hover ~ label .toggleCheck_switch:after { color:#2b2b2b; }
+.toggleCheck.chk3 input[type="checkbox"]:hover ~ label { color:#373737; }
+.toggleCheck.chk3 input[type="checkbox"]:checked ~ label:hover { color:#62b125; }
+.toggleCheck.chk3 input[type="checkbox"]:checked ~ label .toggleCheck_switch { background:#75d32d; }
+.toggleCheck.chk3 input[type="checkbox"]:checked ~ label .toggleCheck_switch:after { color:#5da924; }
+.toggleCheck.chk3 input[type="checkbox"]:checked:focus ~ label .toggleCheck_switch,
+.toggleCheck.chk3 input[type="checkbox"]:checked:hover ~ label .toggleCheck_switch { background:#69be28; }
+.toggleCheck.chk3 input[type="checkbox"]:checked:focus ~ label .toggleCheck_switch:after,
+.toggleCheck.chk3 input[type="checkbox"]:checked:hover ~ label .toggleCheck_switch:after { color:#52941f; }
+
+.toggleCheck.chk3 label .toggleCheck_switch { -webkit-transition:background 0.3s cubic-bezier(0.86, 0, 0.07, 1); transition:background0.3s cubic-bezier(0.86, 0, 0.07, 1); background:#515151; }
+.toggleCheck.chk3 label .toggleCheck_switch:before { color:rgba(255, 255, 255, 0.7); }
+.toggleCheck.chk3 label .toggleCheck_switch:after { -webkit-transition:-webkit-transform 0.3s cubic-bezier(0.86, 0, 0.07, 1); transition:-webkit-transform 0.3s cubic-bezier(0.86, 0, 0.07, 1); transition:transform 0.3s cubic-bezier(0.86, 0, 0.07, 1); transition:transform 0.3s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.3s cubic-bezier(0.86, 0, 0.07, 1); color:#444; }
+.toggleCheck.chk3 input[type="checkbox"]:focus ~ label .toggleCheck_switch:after,
+.toggleCheck.chk3 input[type="checkbox"]:hover ~ label .toggleCheck_switch:after { box-shadow:0 4px 4px rgba(0, 0, 0, 0.4); }
+.toggleCheck.chk3 input[type="checkbox"]:checked ~ label .toggleCheck_switch:after { -webkit-transform:translate3d(58px, 0, 0); transform:translate3d(58px, 0, 0); }
+.toggleCheck.chk3 input[type="checkbox"]:checked:focus ~ label .toggleCheck_switch:after, .toggleCheck.chk3 input[type="checkbox"]:checked:hover ~ label .toggleCheck_switch:after { box-shadow:0 4px 4px rgba(0, 0, 0, 0.4); }
+.toggleCheck.chk3 label { font-size:13px; }
+.toggleCheck.chk3 label .toggleCheck_switch { height:36px; -webkit-box-flex:0; flex:0 0 95px; border-radius:60px; }
+.toggleCheck.chk3 label .toggleCheck_switch:before { left:40px; font-size:13px; line-height:38px; width:50px; padding:0 12px; }
+.toggleCheck.chk3 label .toggleCheck_switch:after { top:3px; left:3px; border-radius:30px; width:30px; line-height:30px; font-size:13px; }
+.toggleCheck.chk3 label .toggleCheck_switch:hover:after { box-shadow:0 4px 4px rgba(0, 0, 0, 0.4); }
+
+
+
+/*===================== buttons ============================ */
+
+.btn-admin{
+  display: inline-block;
+  padding: 2px 10px;
+  color: #fff;
+  font-size: 17px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.4s;
+  border:0px;
+}
+.btn-details{
+    background: #00ad00;
+}
+.btn-delete{
+  background: #bd0f38;
+}
+.btn-edit{
+  background: #11abf1;
+}
+.btn-admin:hover{
+  background: #2c87f769;
+  color: #fff;
+}
+
+/*========================= dashboard card =================*/
+.d-color-1{
+  background: #1379a0;
+  color: #fff;
+}
+.dashboard-card{
+  box-shadow: 0px 0px 2px 1px #bbbbbb;
+  padding: 30px 10px;
+}
+.dashboard-card .card-title{
+  font-size: 30px;
+  color: #fff;
+}
+.dashboard-card .number{
+  display: block;
+  text-align: center;
+  font-size: 50px;
+}
+
+================
+
+/*action button*/
+
+.action_button{
+  border-radius: 0px !important;; 
+  padding: 0px !important;; 
+  background: none !important;; 
+  color: #333 !important;;
+}
+
+.action_button:hover{
+  background:  rgba(0,0,0,0.1) !important;
+}
+

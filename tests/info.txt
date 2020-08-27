@@ -1,0 +1,10 @@
+db : banaljdj_banatechai
+
+pass: 1banatejoni123
+user : banaljdj_joni12345
+
+
+email :
+
+pass: 1banatejoni123
+contact@banatechai.com

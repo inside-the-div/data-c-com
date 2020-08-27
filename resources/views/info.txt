@@ -1,0 +1,88 @@
+font awesome icon
+
+delete : 
+<i class="fa fa-trash" aria-hidden="true"></i>
+
+view :
+<i class="fa fa-eye" aria-hidden="true"></i>
+
+edit:
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+
+back :
+<i class="fa fa-arrow-circle-left" aria-hidden="true">
+download:
+<i class="fa fa-download" aria-hidden="true"></i>
+
+info: 
+<i class="fa fa-info-circle" aria-hidden="true"></i>
+
+woring:
+<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+
+processing:
+<i class="fa fa-hourglass-half" aria-hidden="true"></i>
+on the way:
+<i class="fa fa-motorcycle" aria-hidden="true"></i>
+
+lock/block
+<i class="fa fa-lock" aria-hidden="true"></i>
+
+unblock:
+<i class="fa fa-unlock" aria-hidden="true"></i
+
+hide:
+<i class="fa fa-low-vision" aria-hidden="true"></i>
+
+pdf:
+<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+
+text file:
+<i class="fa fa-file-text" aria-hidden="true"></i>
+save:
+<i class="fa fa-floppy-o" aria-hidden="true"></i>
+
+
+list
+<i class="fa fa-list" aria-hidden="true"></i>
+
+email:
+<i class="fa fa-envelope" aria-hidden="true"></i>
+
+
+banner:
+<i class="fa fa-flag" aria-hidden="true"></i>
+
+slider:
+<i class="fa fa-sliders" aria-hidden="true"></i>
+
+gift/ coupons
+<i class="fa fa-gift" aria-hidden="true"></i>
+
+brand:
+<i class="fa fa-university" aria-hidden="true"></i>
+
+products:
+<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+category:
+<i class="fa fa-tags" aria-hidden="true"></i>
+
+admin / user
+<i class="fa fa-id-badge" aria-hidden="true"></i>
+
+customer:
+<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+<i class="fa fa-male" aria-hidden="true"></i>
+
+order:
+<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+
+faq:
+<i class="fa fa-question-circle" aria-hidden="true"></i>
+
+about :
+<i class="fa fa-address-card-o" aria-hidden="true"></i>
+
+privacy:
+<i class="fa fa-handshake-o" aria-hidden="true"></i>
