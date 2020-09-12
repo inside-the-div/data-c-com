@@ -38,8 +38,7 @@
 	  					<label for="phone" class="mt-2"><b>Phone*</b></label>
 	  					<input required class="form-control" name="phone" type="text" value="{{Auth::user()->phone}}">
 
-	  					<label for="website" class="mt-2"><b>Website*</b></label>
-	  					<input required class="form-control" name="website" type="text" value="{{Auth::user()->website}}">
+	  					
 
 	  					<label for="phone" class="mt-2"><b>Address*</b></label>
 	  					<textarea required name="address" id="" class="form-control" cols="30" rows="4">{{Auth::user()->address}}</textarea>

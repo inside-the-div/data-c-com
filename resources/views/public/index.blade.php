@@ -56,15 +56,7 @@
 			<div class="col-6 col-md-4 col-xl-3">
 				<div class="grid_item single-product">
 					<figure>
-						@if($product->tag_line == 'hot')
-						<span class="ribbon hot">Hot</span>
-						@elseif($product->tag_line == 'new')
-
-						<span class="ribbon new">New</span>
-
-						@elseif($product->tag_line == 'off')
-						<span class="ribbon off">-{{$product->discount}}%</span>
-						@endif
+						
 						
 						<a href="{{route('website.single_product',['slug' => $product->slug])}}">
 							<img class="img-fluid lazy" src="{{URL::asset('assets/img/products')}}/{{$product->image}}" data-src="{{URL::asset('assets/img/products/')}}/{{$product->image}}" alt="">
@@ -82,68 +74,15 @@
 						<i style="" class="fa fa-star" aria-hidden="true"></i>
 						@endfor
 						
-						
 					</div>
 					<a href="{{route('website.single_product',['slug' => $product->slug])}}">
 						<h3 class="text-capitalize">{{$product->name}}</h3>
 					</a>
 					<div class="price_box">
 						<span class="new_price">৳ {{$product->price}}</span>
-						{{-- <span class="old_price">$60.00</span> --}}
+						<span class="old_price">$60.00</span>
 					</div>
-					<ul>
-						<li><a href="#" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a></li>
-						<li class="add-to-cart-btn  
-							@if(array_key_exists($product->code,Session::get('cart-products')))
-								already-added-btns
-							@endif
-						" 
-
-							@if(array_key_exists($product->code,Session::get('cart-products')))
-								data-added="1"
-							@else
-								data-added="0"
-							@endif
-							
-							data-id="{{$product->id}}" 
-							data-price="{{$product->price}}"
-							data-name="{{$product->name}}"
-							data-quantity="1"
-							data-image="{{$product->image}}"
-							data-code="{{$product->code}}"
-							data-slug="{{$product->slug}}"
-
-						>
-							<a 
-								class="tooltip-1 add-to-cart-a
-									
-									@if(array_key_exists($product->code,Session::get('cart-products')))
-										bg-added
-									@endif
-			
-								" 
-
-								data-toggle="tooltip" data-placement="left" title="
-								@if(array_key_exists($product->code,Session::get('cart-products')))
-									Already Added
-								@else
-									Add to cart
-								@endif
-								">
-								<i class="ti-shopping-cart"></i>
-								<span>
-									
-
-									@if(array_key_exists($product->code,Session::get('cart-products')))
-										Already Added
-									@else
-										Add to cart
-									@endif
-
-								</span>
-							</a>
-						</li>
-					</ul>
+					
 				</div>
 				<!-- /grid_item -->
 			</div>

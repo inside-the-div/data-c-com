@@ -43,10 +43,18 @@ function delete_data(e,id,path){
          success:function(data){
 
 
-            $(e).parent('td').parent('tr').hide();
+            
 
             is_delete = 1;
             var message  = JSON.stringify(data.message).replace(/"/g, "");
+
+            if(message != "Have no permission"){
+              $(e).parent('td').parent('tr').hide();
+              is_delete = 1;
+            }else{
+              $(e).find('span').hide();
+              is_delete = 0;
+            }
       
             Toast.fire({
               icon: 'success',

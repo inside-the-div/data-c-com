@@ -94,11 +94,11 @@
           <img src="{{URL::asset('assets/img/products/')}}/{{$product->image}}" alt="" class="img-fluid " id="large-img">
           <div class="row">
 
-            @foreach($product->images as $slider)
+            
               <div class="col-lg-4 col-12 mt-2">
-                <img  src="{{URL::asset('assets/img/products/large-image/')}}/{{$slider->image}}" alt="" class="img-fluid small-img ">
+                <img  src="{{URL::asset('assets/img/products/large-image/')}}/{{$product->image}}" alt="" class="img-fluid small-img ">
               </div>
-            @endforeach
+            
           </div>
         </div>
        
@@ -144,8 +144,6 @@
       </ol>
     </div>
   </div>
-
-
 </div>
 
 @endsection

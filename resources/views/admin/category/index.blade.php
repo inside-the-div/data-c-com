@@ -41,6 +41,7 @@
          <tr align="center">
            <th scope="col">No</th>
            <th scope="col">Name</th>
+           <th scope="col">Image</th>
            <th scope="col">Total Products</th>
            <th scope="col">Date</th>
            <th scope="col">Action</th>
@@ -57,7 +58,7 @@
          <tr align="center">
            <th class="font-pt font-18" >{{$i}}</th>
            <td class="font-pt font-18">{{$category->name}}</td>
-           
+           <td class="font-pt font-18"><img width="40px;" src="{{URL::asset('/assets/img/category')}}/{{$category->image}}" alt=""></td>
            <td>{{$category->products->count()}}</td>
            <td class="font-pt font-18">{{$category->created_at->format('Y-m-d')}}</td>
            <td class="font-pt font-18">
@@ -66,9 +67,16 @@
               </a>
              
              <button  
+
+
+  
+             
              data-catid="{{$category->id}}" 
              data-catname="{{$category->name}}" 
-              
+             data-catdes="{{$category->description}}" 
+             data-cattag="{{$category->tag}}"  
+
+
              class="btn btn-primary cat-edit-btn" type="button"  data-toggle="tooltip" data-placement="top" title="Edit">
                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
              </button>
@@ -117,6 +125,21 @@
 				<label for=""><b>Name*</b></label>
 				<input type="text" class="form-control rounded-0 mb-2 font-pt font-18" name="name">
 
+        <div class="row">
+          <div class="col-12 ">
+            <label for=""><b>Image*</b></label>
+            <input type="file" name="image" class="form-control rounded-0" style="height: 47px;">
+          </div>
+        </div>
+
+
+
+
+				<label for=""><b>Description*</b></label>
+				<textarea name="description" id="" cols="30" rows="5" class="form-control rounded-0 mb-2 font-pt font-18"></textarea>
+
+				<label for=""><b>Tag*</b></label>
+				<textarea name="tag" id="" cols="30" rows="5" class="form-control rounded-0 mb-2 font-pt font-18"></textarea>
 			</div>
 
 			<div class="modal-footer">
@@ -153,6 +176,23 @@
         <label for=""><b>Name*</b></label>
         <input type="text" class="form-control rounded-0 mb-2 font-pt font-18" name="name" id="edit-cat-name">
 
+  
+
+
+        <div class="row">
+          <div class="col-12 ">
+            <label for=""><b>Image*</b></label>
+            <input type="file" name="image" class="form-control rounded-0" style="height: 47px;">
+          </div>
+        </div>
+
+
+        
+        <label for=""><b>Description*</b></label>
+        <textarea name="description" id="edit-cat-des" cols="30" rows="5" class="form-control rounded-0 mb-2 font-pt font-18" ></textarea>
+
+        <label for=""><b>Tag*</b></label>
+        <textarea name="tag" id="edit-cat-tag" cols="30" rows="5" class="form-control rounded-0 mb-2 font-pt font-18"></textarea>
       </div>
 
       <div class="modal-footer">
@@ -182,9 +222,15 @@
 
         var cat_id= $(this).data('catid');
         var cat_name= $(this).data('catname');
-
+        var cat_des= $(this).data('catdes');
+        var cat_tag= $(this).data('cattag');
        
+
+   
+
         $("#edit-cat-name").val(cat_name);
+        $("#edit-cat-des").val(cat_des);
+        $("#edit-cat-tag").val(cat_tag);
         $("#edit-cat-id").val(cat_id);
        
 

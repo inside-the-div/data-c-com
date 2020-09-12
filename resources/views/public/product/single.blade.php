@@ -28,12 +28,12 @@
 				<div class="all">
 					<div class="slider">
 						<div class="owl-carousel owl-theme main">
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
 			
 						</div>
 						<div class="left nonl"><i class="ti-angle-left"></i></div>
@@ -41,13 +41,13 @@
 					</div>
 					<div class="slider-two">
 						<div class="owl-carousel owl-theme thumbs">
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item active"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item active"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
 					
 						</div>
 						<div class="left-t nonl-t"></div>
@@ -91,17 +91,7 @@
 							<div class="btn_add_to_cart_area">
 								<a href="#"
 
-									 class="tooltip-1 btn_1 add-to-cart-single-btn
-									  @if(array_key_exists($product->code,Session::get('cart-products')))
-									  	bg-added
-									  @endif
-									 "
-
-									 @if(array_key_exists($product->code,Session::get('cart-products')))
-									 	data-added="1"
-									 @else
-									 	data-added="0"
-									 @endif
+									 class="tooltip-1 btn_1 add-to-cart-single-btn"
 
 									 data-id="{{$product->id}}" 
 									 data-price="{{$product->price}}"
@@ -109,16 +99,6 @@
 									 data-image="{{$product->image}}"
 									 data-code="{{$product->code}}"
 									 data-slug="{{$product->slug}}"
-
-
-									
-									 @if(array_key_exists($product->code,Session::get('cart-products')))
-									 	 data-toggle="tooltip" data-placement="left" title="Already Added"
-									 @endif
-									
-									
-
-
 									 >Add to Cart</a></div>
 						</div>
 					</div>
@@ -283,19 +263,10 @@
 			<div class="col-6 col-md-4 col-xl-3">
 				<div class="grid_item single-product">
 					<figure>
-						@if($product->tag_line == 'hot')
-						<span class="ribbon hot">Hot</span>
-						@elseif($product->tag_line == 'new')
-
-						<span class="ribbon new">New</span>
-
-						@elseif($product->tag_line == 'off')
-						<span class="ribbon off">-{{$product->discount}}%</span>
-						@endif
-						
+					
 						<a href="{{route('website.single_product',['slug' => $product->slug])}}">
-							<img class="img-fluid lazy" src="{{URL::asset('assets/img/products')}}/{{$product->image}}" data-src="{{URL::asset('assets/img/products/')}}/{{$product->image}}" alt="">
-							<img class="img-fluid lazy" src="{{URL::asset('assets/img/products')}}/{{$product->image}}" data-src="{{URL::asset('assets/img/products/')}}/{{$product->image}}" alt="">
+							<img class="img-fluid lazy" src="'{{URL::asset('assets/img/products')}}/{{$product->image}}'" data-src="{{URL::asset('assets/img/products/')}}/{{$product->image}}" alt="">
+							<img class="img-fluid lazy" src="'{{URL::asset('assets/img/products')}}/{{$product->image}}'" data-src="{{URL::asset('assets/img/products/')}}/{{$product->image}}" alt="">
 						</a>
 						
 					</figure>
@@ -318,10 +289,7 @@
 						<span class="new_price">৳ {{$product->price}}</span>
 						{{-- <span class="old_price">$60.00</span> --}}
 					</div>
-					<ul>
-						<li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a></li>
-					</ul>
+					
 				</div>
 				<!-- /grid_item -->
 			</div>
@@ -343,94 +311,13 @@
 @section('footer')
 	<script>
 		$(document).ready(function(){
-			$(".add-to-cart-single-btn").click(function(){
-
-				var add_to_cart_btn = $(this);
-				var is_added = $(this).data('added');
-
-				if(is_added == "1"){
-
-					
-					  $("#notification-already-added").fadeIn();
-
-					  setTimeout(function(){
-					    $("#notification-already-added").fadeOut();
-					  }, 2000);
-					
-
-				  return false;
-				}else{
-					
-					  $("#notification-product-added").fadeIn();
-
-					  setTimeout(function(){
-					    $("#notification-product-added").fadeOut();
-					  }, 2000);
-					
-				}
 
 
-				var total_products = Number($("#total_cart_products").html());
-				total_products++;
-				$("#total_cart_products").html(total_products);
-
-				var quantity = $("#quantity_1").val();
-
-				var product = {};
-				var id = $(this).data('id');
-				var name = $(this).data('name');
-				var price = $(this).data('price');
-				var code = $(this).data('code');
-				var slug = $(this).data('slug');
-				var image = $(this).data('image');
-
-		
-				product['id'] = id;
-				product['name'] = name;
-				product['price'] = price;
-				product['quantity'] = quantity;
-				product['code'] = code;
-				product['slug'] = slug;
-				product['image'] = image;
-
-				// send ajax request 
-
-				$.ajax({
-
-				   type:'POST',
-				   url:'/add-to-cart',
-				   data:product,
-				   success:function(data){
-
-				    add_to_cart_btn.data('added',"1");
-				    add_to_cart_btn.addClass('bg-added');
-
-				    add_to_cart_btn.attr('data-original-title',"Already added");
-				    add_to_cart_btn.attr('data-toggle',"tooltip");
-				    add_to_cart_btn.attr('data-placement',"left");
-
-				    
-				    mekeCart(data.products);
-				  }
-				 
-				});
-
-				// end ajax request
-
-				e.preventDefault();
-
-			}) // add to cart end
 
 
-			 $('#delete-full-cart').click(function(e){
 
-			 	var btn = $(".add-to-cart-single-btn").eq(0);
-			 	btn.data('added',0);
-			 	btn.removeClass('bg-added');
-			 	btn.removeAttr('title');
-			 	btn.removeAttr('data-original-title');
 
-			 }) // delete cart 
+			
 
 
 			 // quantity control
@@ -441,10 +328,6 @@
 			 		$("#quantity_1").val(1)
 			 	}
 			 }) // end
-
-
-
-
 
 
 			 $("#review-submit").click(function(e){

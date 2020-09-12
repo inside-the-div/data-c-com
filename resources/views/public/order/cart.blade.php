@@ -81,13 +81,13 @@
 							</table>
 
 							<div class="row add_top_30 flex-sm-row-reverse cart_actions">
-							<div class="col-sm-4 text-right">
+		{{-- 					<div class="col-sm-4 text-right">
 								<div class="apply-coupon">
 									<div class="form-group form-inline">
 										<input type="text" name="coupon-code" value="" placeholder="Promo code" class="form-control"><button type="button" class="btn_1 outline">Apply Coupon</button>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							
 						</div>
 						<!-- /cart_actions -->

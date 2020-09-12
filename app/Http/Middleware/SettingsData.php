@@ -42,7 +42,7 @@ class SettingsData
             Session::put('address',$settings->address);
             Session::put('location',$settings->location);
             
-           
+          
 
             $categories = Category::all();
             Session::put('categories',$categories);

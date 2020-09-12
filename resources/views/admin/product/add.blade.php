@@ -56,7 +56,10 @@
 							<input required step="any" type="number" name="discount" class="form-control rounded-0 font-pt font-18">
 						</div>
 
-						
+						<div class="col-12 col-lg-6">
+							<label for="shipping_cost" class="font-pt font-16"><b>Shipping Cost*</b></label>
+							<input required step="any" type="number" name="shipping_cost" class="form-control rounded-0 font-pt font-18">
+						</div>
 
 					</div>
 
@@ -68,6 +71,23 @@
 					<textarea required name="description" id="description" cols="30" rows="4" class="form-control rounded-0 font-pt font-18 mb-2"></textarea>
 
 
+					<div class="row">
+						<div class="col-12 ">
+							<div class="p-3" id="seo-area">
+								<label for=""><b>Meta Tag</b></label>
+								<textarea name="meta_tag" id="" cols="30" rows="3" class="form-control rounded-0 mb-2"></textarea>
+								<label for=""><b>Meta Descripton</b></label>
+								<textarea name="meta_description" id="" cols="30" rows="3" class="form-control rounded-0 mb-2"></textarea>
+								<label for=""><b>Meta Keyword</b></label>
+								<textarea name="metea_keyword" id="" cols="30" rows="3" class="form-control rounded-0"></textarea>
+
+
+
+
+
+							</div>
+						</div>
+					</div>
 
 					<input type="submit" value="Add" class="form-control my-2 btn_1">
 
@@ -95,9 +115,9 @@
 						<div class="preview" id="base-image-preview"  ></div>
 					</div>
 
-					<div id="more-image-area"></div>
+					
 
-					<button id="add-more-image-btn" class="btn_1 my-2 font-18 font-pt">Add More Image</button>
+					
 
 					<label for="available" class="font-pt font-16"><b>Availability</b></label>
 					<select name="available" id="available" class="form-control rounded-0 font-pt font-18 mb-2">
@@ -112,7 +132,10 @@
 					</select>
 
 
-			    	
+			    	<div class="custom-control custom-checkbox mr-sm-2">
+			            <input type="checkbox" name="seo" class="custom-control-input " id="seo-checkbox" value="1">
+			            <label class="custom-control-label font-18 font-pt text-info" for="seo-checkbox">Show More Option</label>
+			        </div>
 
 				</div>
 			</div>
@@ -144,6 +167,28 @@
 			<div class="modal-body">
 				<label for=""><b>Name*</b></label>
 				<input type="text" class="form-control rounded-0 mb-2 font-pt font-18" name="name">
+
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <label for="parent_cat">Parent Category</label>
+            <select name="parent_cat" id="parent_cat" class="form-control">
+              <option value="0">Parent</option>
+              @foreach($categories as $caregoty)
+                <option value="{{$caregoty->id}}">{{$caregoty->name}}</option>
+              @endforeach
+            </select>
+          </div>
+          <div class="col-12 col-lg-6">
+            <label for=""><b>Image*</b></label>
+            <input type="file" name="image" class="form-control rounded-0" style="height: 47px;">
+          </div>
+        </div>
+
+				<label for=""><b>Description*</b></label>
+				<textarea name="description" id="" cols="30" rows="5" class="form-control rounded-0 mb-2 font-pt font-18"></textarea>
+
+				<label for=""><b>Tag*</b></label>
+				<textarea name="tag" id="" cols="30" rows="5" class="form-control rounded-0 mb-2 font-pt font-18"></textarea>
 			</div>
 
 			<div class="modal-footer">
@@ -170,28 +215,8 @@
 			$('#base-image-show').hide();
 			var preview_id;
 			$(document).ready(function(){
-				$("#add-more-image-btn").click(function(e){
 
-					var total = $(".product-new-image").length;
 
-					var new_img = `
-						<div class="product-new-image mt-2">
-							<span class="delete-this-image">X</span>
-							<label class="font-pt font-18"  for=""><b>Slider - `+(total+1)+`</b></label>
-
-							<input data-total="`+total+`" class="form-control new-image input-file" type="file" name="more_image[]">
-							<p id="image-validate-`+total+`" class=" text-danger  text-center"></p>
-							<div class="card m-2 product-image-preview-area" >
-								<div id="preview-`+total+`" class="preview"  ></div>
-
-							</div>
-						</div>
-					`;
-					$("#more-image-area").append(new_img);
-
-					e.preventDefault();
-					return false;
-				})
 
 
 				$("#base-image").change(function(){
@@ -219,59 +244,11 @@
 	            	       reader.readAsDataURL(this.files[0],this);
 	            		}
 		            }
-
-
-
-
 					
 				})
-			})
 
 
-			$(document).on('change', '.new-image', function(){  
-			  
-			  
-			   preview_id = $(this).data('total');
-
-			   
-
-
-
-			    var img_size=(this.files[0].size);
-	            
-	            if(img_size > 2000000) {
-	              
-	               	
-	               $(this).val('');
-	               $("#image-validate-"+preview_id).html("Image size is too large(size > 2MB)! use < 2MB ");
-
-
-
-	            }else{
-	            	$("#image-validate-"+preview_id).html("");
-            	   if (this.files && this.files[0]) {
-            			var reader = new FileReader();
-            			reader.onload = function(e,input) {
-            			    $('#preview-'+preview_id).css('background-image', 'url('+e.target.result +')');
-            			    $('#preview-'+preview_id).hide();
-            			    $('#preview-'+preview_id).fadeIn(650);
-            	
-            			}
-            			reader.readAsDataURL(this.files[0],this);
-            	    }
-	            }
-
-
-
-
-
-
-			})
-
-
-			$(document).on('click','.delete-this-image',function(){
-				 $(this).parent().remove();				 
-			})
+			}) //end jquery
 
 
 		</script>
@@ -321,6 +298,25 @@
 		</script>
 
 
+		<script>
+			$(document).ready(function() {
+
+				$("#seo-area").hide();
+
+				$("#seo-checkbox").click(function(){
+					if($(this).prop('checked') == true){
+						$("#seo-area").show();
+					}else{
+						$("#seo-area").hide();
+					}
+				});
+
+				
+
+			 });
+
+
+		</script>
 
 
 

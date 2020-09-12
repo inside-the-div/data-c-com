@@ -22,6 +22,7 @@ class OrderBillingDetails extends Migration
             $table->string('email')->nullable();
             $table->string('address');
             $table->string('city');
+            $table->string('post_code')->nullable();
             $table->timestamps();
         });
     }

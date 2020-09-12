@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Category;
 use Auth;
@@ -10,7 +11,9 @@ class CategoryController extends Controller
 {
     public function index(){
 
-        $categories = Category::with('products')->orderBy('id','DESC')->get();
+        $categories = Cache::rememberForever('all-categories',function() {
+            return Category::with('products')->orderBy('id','DESC')->get();
+        });
     	return view('admin.category.index',compact('categories'));
     }
 
@@ -23,22 +26,34 @@ class CategoryController extends Controller
 
     public function store(Request $r){
         $r->validate([
-            'name' => 'required|unique:categories'
-            
+            'name' => 'required|unique:categories',
+             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+
+
+        // $img = $r->image->store('public/images');
+
+        $img = time().'.'.$r->image->getClientOriginalExtension();
+        $r->image->move(public_path('/assets/img/category'), $img);
 
         $currentuserid  = Auth::user()->id;
 
         $slug = str_replace(" ","-",strtolower($r->name));
         $slug = strtolower($slug);
 
+
         $category               = new Category;
         $category->name         = $r->name;
-
+        $category->image        = $img;
+        $category->tag          = $r->tag;
+        $category->description  = $r->description;
         $category->slug         = $slug;
         $category->user_id      = $currentuserid;
        
+
         $category->save();
+
+  
 
     	return back()->with('success','category Stored');
     }
@@ -46,8 +61,8 @@ class CategoryController extends Controller
     public function update(Request $r){
 
         $r->validate([
-            'name' => 'required|unique:categories,name,'.$r->id
-           
+            'name' => 'required|unique:categories,name,'.$r->id,
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         $category = Category::find($r->id);
@@ -57,8 +72,37 @@ class CategoryController extends Controller
         $slug = strtolower($slug);
         $category->slug = $slug;
 
-        $category->save();
+        $category->description = $r->description;
+        $category->tag = $r->tag;
+
+
+        if ($r->hasFile('image')) {
+
+
+            $delete_this_image = $category->image;
+
+
     
+            $path = public_path('/assets/img/category');
+            if (File::exists($path.'/'.$category->image)){
+                  File::delete($path.'/'.$category->image);
+            }
+
+
+
+            $img = time().'.'.$r->image->getClientOriginalExtension();
+            $r->image->move(public_path('/assets/img/category'), $img);
+
+            $category->image = $img;
+
+
+        }
+
+        $category->save();
+        
+
+      
+       
     	return back()->with('success','Category Updated');
     }
 
@@ -66,7 +110,12 @@ class CategoryController extends Controller
 
          $category = Category::find($r->id);
 
-         $category->delete();
+         $path = public_path('/assets/img/category');
+         if (File::exists($path.'/'.$category->image)){
+               File::delete($path.'/'.$category->image);
+         }
+                 
+        // $category->delete();
 
          return response()->json([
             'message' => 'Success'
@@ -92,6 +141,8 @@ class CategoryController extends Controller
         }
 
 
+
+
         $filename = 'Data_Categories_'.date("l_d_m_Y").'.csv';       
         header("Content-type: text/csv");       
         header("Content-Disposition: attachment; filename=$filename");       
@@ -108,5 +159,9 @@ class CategoryController extends Controller
         }       
         fclose($output); 
     }
+
+
+    
+
 
 }

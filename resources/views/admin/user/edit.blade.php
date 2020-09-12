@@ -61,57 +61,7 @@
 		</div>
 
 
-		<div class="col-12 col-lg-4 mb-2">
-		  <div class="card p-3 rounded-0">
 
-		   <div class="permission-title title-border" >
-		   	<div class="row">
-		   		<div class="col-12 col-lg-6">
-		   			<div class="toggleCheck chk3 d-inline">
-		   			  <input @if(in_array('admin.product.edit',$permissions)) checked @endif type="checkbox"  id="dashboard" name="permission[]" value="admin.home,admin.dashboard" checked >
-		   			  <label for="dashboard">
-		   			    <div class="toggleCheck_switch" data-checked="Yes" data-unchecked="No"></div>
-		   			  </label>
-		   			</div>
-		   		</div>
-		   		<div class="col-12 col-lg-6">
-		   			<h3>Dashboard</h3>
-		   		</div>
-		   	</div>
-		   </div>
-{{-- 
-			<div class="row mt-3">
-				<div class="col-6 mb-2">
-					<div class="custom-control custom-checkbox mr-sm-2">
-				        <input name="permission[]" value="total order" type="checkbox" class="custom-control-input" id="total-order">
-				        <label class="custom-control-label font-18 font-pt" for="total-order">Total Order</label>
-				     </div>
-				</div>
-				<div class="col-6 mb-2">
-					<div class="custom-control custom-checkbox mr-sm-2">
-				        <input @if(in_array('admin.product.edit',$permissions)) checked @endif type="checkbox" name="permission[]" class="custom-control-input" id="customControlAutosizing" value="admin.info">
-				        <label class="custom-control-label font-18 font-pt" for="customControlAutosizing">info of store</label>
-				     </div>
-				</div>
-
-				<div class="col-6 mb-2">
-					<div class="custom-control custom-checkbox mr-sm-2">
-				        <input @if(in_array('admin.product.edit',$permissions)) checked @endif type="checkbox" name="permission[]" class="custom-control-input" id="customControlAutosizing" value="admin.info">
-				        <label class="custom-control-label font-18 font-pt" for="customControlAutosizing">info of store</label>
-				     </div>
-				</div>
-				<div class="col-6 mb-2">
-					<div class="custom-control custom-checkbox mr-sm-2">
-				        <input @if(in_array('admin.product.edit',$permissions)) checked @endif type="checkbox" name="permission[]" class="custom-control-input" id="customControlAutosizing" value="admin.info">
-				        <label class="custom-control-label font-18 font-pt" for="customControlAutosizing">info of store</label>
-				     </div>
-				</div>
-
-			</div> --}}
-
-
-		  </div>
-		</div>
 	
 		<div class="col-12 col-lg-4 mb-2">
 		  <div class="card p-3 rounded-0">
@@ -218,57 +168,7 @@
 		</div>
 
 
-		<div class="col-12 col-lg-4 mb-2">
-		  <div class="card p-3 rounded-0">
-
-		   <div class="permission-title title-border">
-		   	<div class="row">
-		   		<div class="col-12 col-lg-6">
-		   			<div class="toggleCheck chk3 d-inline">
-		   			  <input @if(in_array('admin.brands',$permissions)) checked @endif type="checkbox" name="permission[]" id="brands"  value="admin.brands">
-		   			  <label for="brands">
-		   			    <div class="toggleCheck_switch" data-checked="Yes" data-unchecked="No"></div>
-		   			  </label>
-		   			</div>
-		   		</div>
-		   		<div class="col-12 col-lg-6">
-		   			<h3>Brand</h3>
-		   		</div>
-		   	</div>
-		   </div>
-
-			<div class="row mt-3">
-				<div class="col-6 mb-2">
-					<div class="custom-control custom-checkbox mr-sm-2">
-				        <input @if(in_array('admin.brand.show',$permissions)) checked @endif type="checkbox" name="permission[]" class="custom-control-input brand-permission" id="brand-show" value="admin.brand.show">
-				        <label class="custom-control-label font-18 font-pt" for="brand-show">Show</label>
-				     </div>
-				</div>
-				<div class="col-6 mb-2">
-					<div class="custom-control custom-checkbox mr-sm-2">
-				        <input @if(in_array('admin.brand.store',$permissions)) checked @endif type="checkbox" name="permission[]" class="custom-control-input brand-permission" id="brand-add" value="admin.brand.store">
-				        <label class="custom-control-label font-18 font-pt" for="brand-add">Add</label>
-				     </div>
-				</div>
-
-				<div class="col-6 mb-2">
-					<div class="custom-control custom-checkbox mr-sm-2">
-				        <input @if(in_array('admin.brand.edit',$permissions)) checked @endif type="checkbox" name="permission[]" class="custom-control-input brand-permission" id="brand-edit" value="admin.brand.edit">
-				        <label class="custom-control-label font-18 font-pt" for="brand-edit">Edit</label>
-				     </div>
-				</div>
-				<div class="col-6 mb-2">
-					<div class="custom-control custom-checkbox mr-sm-2">
-				        <input @if(in_array('admin.brand.delete',$permissions)) checked @endif type="checkbox" name="permission[]" class="custom-control-input brand-permission" id="brand-delete" value="admin.brand.delete">
-				        <label class="custom-control-label font-18 font-pt" for="brand-delete">Delete</label>
-				     </div>
-				</div>
-
-			</div>
-
-
-		  </div>
-		</div>
+	
 
 		<div class="col-12 col-lg-4 mb-2">
 		  <div class="card p-3 rounded-0">
@@ -877,9 +777,8 @@
 			$("#reviews").click(function(){
 				all_seletce_unselect("review-permission",'reviews');
 			})
-			$("#brands").click(function(){
-				all_seletce_unselect("brand-permission",'brands');
-			})
+			
+
 			$("#categories").click(function(){
 				all_seletce_unselect("category-permission",'categories');
 			})
@@ -941,9 +840,8 @@
 				premissionCheckedUnchecked("review-permission","reviews");
 			})
 
-			$(".brand-permission").click(function(){
-				premissionCheckedUnchecked("brand-permission","brands");
-			})			
+			
+
 
 			$(".category-permission").click(function(){
 				premissionCheckedUnchecked("category-permission","categories");

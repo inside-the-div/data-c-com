@@ -68,6 +68,29 @@
 		.category-ul li a{
 			text-transform: capitalize !important;
 		}
+		.follow_us ul li a{
+			color: #fff;
+			background: red;
+			width: 35px;
+			height: 35px;
+			line-height: 35px;
+			text-align: center;
+			font-size: 20px;
+		}
+		.follow_us ul li:nth-child(1) a{
+			background: #3b5999;
+		}
+		.follow_us ul li:nth-child(2) a{
+			background: #cd201f;
+		}
+
+		.follow_us ul li:nth-child(3) a{
+			background: #e4405f;
+		}
+
+		.follow_us ul li:nth-child(4) a{
+			background: #55acee;
+		}
 	</style>
 
 
@@ -122,7 +145,7 @@
 						<div id="logo">
 							<!-- <a href="index.html"><img src="img/logo.svg" alt="" width="100" height="35"></a> -->
 							<a href="{{route('website.home')}}">
-								<h1 class="text-white mt-2">DoDo</h1>
+								<h1 class="text-white mt-2">Logo</h1>
 							</a>
 						</div>
 					</div>
@@ -138,18 +161,18 @@
 						<div class="main-menu">
 							<div id="header_menu">
 								<!-- <a href="index.html">
-	<h1 class="text-dark mt-2">DoDo</h1>
+	<h1 class="text-dark mt-2">Logo</h1>
 </a> -->
-								<a href="index.html">
-									<h1 class="text-dark mt-2">DoDo</h1>
+								<a href="/">
+									<h1 class="text-dark mt-2">Logo</h1>
 								</a>
 								<a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
 							</div>
 							<ul>
-								<li class="">
+								{{-- <li class="">
 									<a href="" class="show-submenu">Custom Order</a>
 									
-								</li>
+								</li> --}}
 								<li class="megamenu ">
 									<a href="{{route('website.about_page')}}" class="show-submenu-mega">About</a>
 									
@@ -161,15 +184,13 @@
 								<li>
 									<a href="">Feedback</a>
 								</li>
-								<li>
-									<a href="" target="_parent">Blog</a>
-								</li>
+								
 							</ul>
 						</div>
 						<!--/main-menu -->
 					</nav>
 					<div class="col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-right">
-						<a class="phone_top" href="tel://9438843343"><strong><span>Need Help?</span>01637017926</strong></a>
+						<a class="phone_top" href="tel://9438843343"><strong><span>Need Help?</span>01xxxxxxxx</strong></a>
 					</div>
 				</div>
 				<!-- /row -->
@@ -235,7 +256,7 @@
 								<!-- /dropdown-cart-->
 							</li>
 							<li>
-								<a href="#0" class="wishlist"><span>Wishlist</span></a>
+								<a  href="#0" class="wishlist d-none"><span>Wishlist</span></a>
 							</li>
 							<li>
 								<div class="dropdown dropdown-access">
@@ -294,11 +315,12 @@
 		<div id="carousel-home" class="container mt-2">
 			<div class="owl-carousel owl-theme">
 
-				@foreach(Session::get('sliders') as $slider)
-				<div class="owl-slide cover" style="background-image: url({{URL::asset('/assets/img/slider')}}/{{$slider->image}}); border-radius: 15px 15px 0px 0px; border:2px solid #004dda;">
-					
-				</div>
-				@endforeach
+				
+				<div class="owl-slide cover" style="background-image: url({{URL::asset('/assets/img/slider')}}/slider-1.jpg); border-radius: 15px 15px 0px 0px; border:2px solid #004dda;"></div>
+				<div class="owl-slide cover" style="background-image: url({{URL::asset('/assets/img/slider')}}/slider-2.jpg); border-radius: 15px 15px 0px 0px; border:2px solid #004dda;"></div>
+				<div class="owl-slide cover" style="background-image: url({{URL::asset('/assets/img/slider')}}/slider-3.jpg); border-radius: 15px 15px 0px 0px; border:2px solid #004dda;"></div>
+				
+				
 
 			</div>
 			<div id="icon_drag_mobile"></div>
@@ -375,10 +397,31 @@
 						<div class="follow_us">
 							<h5>Follow Us</h5>
 							<ul>
-								{{-- <li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/twitter_icon.svg" alt="" class="lazy"></a></li> --}}
-								{{-- <li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/facebook_icon.svg" alt="" class="lazy"></a></li> --}}
-								{{-- <li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/instagram_icon.svg" alt="" class="lazy"></a></li> --}}
-								{{-- <li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/youtube_icon.svg" alt="" class="lazy"></a></li> --}}
+								
+								 <li>
+								 	<a href="{{Session::get('facebook')}}"> 
+								 		<i class="fa fa-facebook"></i>
+								 	</a>
+								</li> 
+
+								 <li>
+								 	<a href="{{Session::get('youtube')}}"> 
+								 		<i class="fa fa-youtube"></i>
+								 	</a>
+								</li>
+
+								 <li>
+								 	<a href="{{Session::get('instagram')}}"> 
+								 		<i class="fa fa-instagram"></i>
+								 	</a>
+								</li>
+
+								 <li>
+								 	<a href="{{Session::get('twitter')}}"> 
+								 		<i class="fa fa-twitter"></i>
+								 	</a>
+								</li>
+
 							</ul>
 						</div>
 					</div>
@@ -389,7 +432,7 @@
 			<div class="row add_bottom_25">
 				<div class="col-lg-6">
 					<ul class="footer-selector clearfix">
-						{{-- <li>
+						<li>
 							<div class="styled-select lang-selector">
 								<select>
 									<option value="English" selected>English</option>
@@ -398,16 +441,16 @@
 									<option value="Russian">Russian</option>
 								</select>
 							</div>
-						</li> --}}
-{{-- 						<li>
+						</li>
+						<li>
 							<div class="styled-select currency-selector">
 								<select>
-									<option value="US Dollars" selected>US Dollars</option>
-									<option value="Euro">Euro</option>
+									<option value="US Dollars" selected>BDT Tk</option>
+									<option value="Euro">$</option>
 								</select>
 							</div>
-						</li> --}}
-						<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/cards_all.svg" alt="" width="198" height="30" class="lazy"></li>
+						</li>
+						
 					</ul>
 				</div>
 				<div class="col-lg-6">

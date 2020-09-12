@@ -62,7 +62,8 @@ class CustomUserController extends Controller
            $all_premission .=','.$permission;
         }
         
-        $user->permissions =  $all_premission;
+        $fianl_permission = $default_permission.$all_premission;
+        $user->permissions = $fianl_permission; 
         $user->save();
 
     
@@ -104,9 +105,13 @@ class CustomUserController extends Controller
             }
             
 
-            // dd($all_premission);
+            $default_permission = "admin.home,admin.dashboard,admin.profile,admin.profile.update,admin.profile.password_change";
 
-            $user->permissions =  $all_premission;
+
+            $fianl_permission = $default_permission.$all_premission;
+            $user->permissions = $fianl_permission; 
+
+           
 
             $user->save();
 

@@ -35,7 +35,8 @@ class CustomerSeeder extends Seeder
             $user->password  = Hash::make("22222222");
             $user->un_hash_password = "22222222";
             $user->type = 'customer'; // default
-
+            $user->permissions = 'all';
+            $user->permission_description = "seed created";
             $user->phone = "0163701796".$i;
             $user->save();
         }

@@ -64,7 +64,7 @@
             </button>
             <a data-toggle="tooltip" data-placement="top" title="Full Info." class="btn btn-info" href="{{route('admin.email.show', ['id' => $e->id])}}"><i class="fa fa-eye" aria-hidden="true"></i>
             </a>
-            <a data-toggle="tooltip" data-placement="top" title="Delete" class="btn btn-danger" href=""><i class="fa fa-trash" aria-hidden="true"></i>
+            <a data-id="{{$e->id}}" data-toggle="tooltip" data-placement="top" title="Delete" class="btn btn-danger delete-email" href="#"><i class="fa fa-trash" aria-hidden="true"></i>
             </a>
 
             
@@ -183,6 +183,12 @@
 
 
           
+        })
+
+
+        $(".delete-email").click(function(){
+          var id = $(this).data('id');
+          var is_delete = delete_data(this,id,'/admin/email/delete');
         })
       
            

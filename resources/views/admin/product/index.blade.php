@@ -71,13 +71,19 @@
            <td class="font-pt font-18">{{$product->created_at->format('Y-m-d')}}</td>
 
            <td align="left">
-            
+
+      {{--        <div class="custom-control custom-switch">
+               <input type="checkbox" @if($product->home_show == 1) checked @endif class="custom-control-input show-home" data-id="{{$product->id}}" id="show-home-{{$product->id}}">
+               <label class="custom-control-label" for="show-home-{{$product->id}}">Show Home</label>
+             </div> --}}
+
              <div class="custom-control custom-switch">
                <input type="checkbox" @if($product->active == 1) checked @endif class="custom-control-input active-product" data-id="{{$product->id}}" id="active-{{$product->id}}">
                <label class="custom-control-label" for="active-{{$product->id}}">Active</label>
              </div>
            </td>
            <td class="font-pt font-18">
+
 
             <a data-toggle="tooltip" data-placement="top" title="Full Info." class="btn btn-info" href="{{route('admin.product.show', ['slug' => $product->slug])}}"><i class="fa fa-eye" aria-hidden="true"></i>
             </a>

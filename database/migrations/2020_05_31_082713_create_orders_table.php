@@ -26,10 +26,11 @@ class CreateOrdersTable extends Migration
             $table->string('payment')->default('pending');
             $table->double('payment_cost')->default(0.0);
             $table->double('process')->default(0.0);
-            // $table->mediumText('customer_note')->nullable();
-            // $table->mediumText('admin_note')->nullable();
-            // $table->string('completed_at')->nullable();
+            $table->mediumText('customer_note')->nullable();
+            $table->mediumText('admin_note')->nullable();
+            $table->string('completed_at')->nullable();
             $table->string('transection_id')->nullable();
+            $table->boolean('seen')->default(0);
             
             $table->timestamps();
         });

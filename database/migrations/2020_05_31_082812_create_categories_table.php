@@ -17,7 +17,10 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedInteger('user_id');
+            $table->string('image');
             $table->string('slug');
+            $table->text('description')->nullable();
+            $table->text('tag')->nullable();
             $table->timestamps();
         });
     }

@@ -19,7 +19,8 @@ class UserSeeder extends Seeder
         $user->password  = Hash::make("22222222");
         $user->un_hash_password = "22222222";
         $user->type = 'admin'; // default
-       
+        $user->permissions = 'all';
+        $user->permission_description = "seed created";
         $user->save();
     }
 }

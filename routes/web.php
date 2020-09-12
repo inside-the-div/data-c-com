@@ -5,11 +5,91 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['settings'])->group(function () {
   
+// get method
+Route::get('/','FrontEnd\PublicController@index')->name('website.home');
+Route::get('/shop','FrontEnd\EcommerceController@shop')  ->name('website.shop_page');
+Route::get('/category/{slug}','FrontEnd\CategoryController@single_category')->name('website.single_category');
+Route::get('/check-out', 'FrontEnd\EcommerceController@check_out')->name('website.check_out');
 
-  Route::get('/',function(){
-    dd("main website");
-  })->name('website.home');
+Route::get('/about', 'FrontEnd\PageController@about_page')->name('website.about_page');
+Route::get('/condition', 'FrontEnd\PageController@condition_page')->name('website.condition_page');
+Route::get('/privacy-policy', 'FrontEnd\PageController@privacy_page')->name('website.privacy_page');
+Route::get('/contact', 'FrontEnd\PageController@contact_page')->name('website.contact_page');
+Route::post('/contact/email/send', 'FrontEnd\PageController@email_send')->name('website.email.send');
 
+Route::get('/faq', 'FrontEnd\PageController@faq_page')->name('website.faq_page');
+Route::get('/help', 'FrontEnd\PageController@help_page')->name('website.help_page');
+
+// post method
+Route::post('/search', 'FrontEndController@search')->name('website.search');
+
+
+
+// get of cart 
+
+Route::get('/cart', 'FrontEnd\CartController@view_cart')->name('website.cart.view');
+Route::get('/check-out', 'FrontEnd\CartController@check_out')->name('website.cart.check_out');
+
+
+// order submit
+
+Route::post('/order-submit', 'FrontEnd\OrderController@submit')->name('website.order.submit');
+Route::get('/confirm', 'FrontEnd\OrderController@confirm')->name('website.order.confirm');
+
+
+
+
+});
+
+
+Route::post('/add-to-cart', 'FrontEnd\CartController@add_to_cart')->name('website.cart.add');
+Route::post('/delete-full-cart', 'FrontEnd\CartController@delete_full_cart')->name('website.cart.delete.full');
+
+Route::post('/create-cart', 'FrontEnd\CartController@create_cart')->name('website.cart.create');
+
+Route::post('/delete-cart-product', 'FrontEnd\CartController@delete_cart_product')->name('website.cart.delete.product');
+Route::post('/update-cart', 'FrontEnd\CartController@update_cart')->name('website.cart.update');
+
+
+
+
+
+
+
+// Route::post('/order/store', 'FrontEndController@store_order')->name('website.order.store');
+
+
+// Route::post('/contact', 'ContactController@SendEmail')->name('website.send.email');
+// Route::post('/find-me', 'CartController@find_me')->name('website.cart.findme');
+
+
+
+
+// settings
+
+// Route::middleware(['settings'])->group(function () {
+
+  // Route::get('/', 'PublicController@home')->name('website.home');
+
+
+
+  // Route::get('/order-submit', 'FrontEndController@order_submit')->name('website.oder.submit');
+  // Route::get('/check-out', 'CartController@check_out')->name('website.check_out');
+  // Route::get('/about', 'AboutController@index')->name('website.about');
+  // Route::get('/condition', 'ConditionController@index')->name('website.condition');
+  // Route::get('/privacy-policy', 'PrivacyController@index')->name('website.privacy');
+  // Route::get('/contact', 'ContactController@index')->name('website.contact');
+
+
+// });
+
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+
+  Route::post('/review-submit', 'FrontEnd\ReviewController@store')->name('website.review.store');
 
 });
 
@@ -25,13 +105,15 @@ Route::middleware(['settings'])->group(function () {
 
 
 
-
-
-
-
 Auth::routes();
 
+// Route::get('/clear_cache', function () {
 
+//     \Artisan::call('cache:clear');
+
+//     dd("Cache is cleared");
+
+// });
 
 
 Route::group([
@@ -55,6 +137,8 @@ Route::group([
    Route::post('/order/delete','OrderController@delete')->name('admin.order.delete');
    Route::post('/order/confirm','OrderController@confirm')->name('admin.order.confirm');
    Route::post('/order/download','OrderController@download')->name('admin.order.download');
+
+   Route::post('/order/auto_seen','OrderController@seen')->name('admin.order.seen');
 
    // customers 
    Route::get('/customers','CustomerController@index')->name('admin.customers');
@@ -103,6 +187,7 @@ Route::group([
 
 
 
+   
 
 
 
@@ -116,9 +201,16 @@ Route::group([
    Route::post('/review/delete','ReviewController@delete')->name('admin.review.delete');
    Route::post('/review/active','ReviewController@active')->name('admin.review.active');
 
+   //seo
+   Route::get('/seo','SeoController@index')->name('admin.seos');
+   Route::post('/seo/home-page','SeoController@home_page')->name('admin.seo.home-page');
+   Route::post('/seo/about-page','SeoController@about_page')->name('admin.seo.about-page');
+   Route::post('/seo/contact-page','SeoController@contact_page')->name('admin.seo.contact-page');
 
+   // banner
+   Route::get('/banner','BannerController@index')->name('admin.banner');
 
-
+   Route::post('/banner/update','BannerController@update')->name('admin.banner.update');
 
 
 
@@ -129,13 +221,20 @@ Route::group([
     Route::post('/settings/social','SettingsController@social_media_update')->name('admin.settings.social_media.update');
 
 
-
+    // Route::get('/ecommerce','EcommerceController@index')->name('admin.ecommerce');
+    Route::get('/about','AboutController@edit')->name('admin.about');
+    Route::get('/contact','ContactController@edit')->name('admin.contact');
+    Route::get('/privacy','PrivacyController@edit')->name('admin.privacy');
+    Route::get('/condition','ConditionController@edit')->name('admin.condition');
 
     Route::post('/ecommerce','EcommerceController@update')->name('admin.ecommerce.update');
     Route::post('/ecommerce/payment','EcommerceController@payment_settings')->name('admin.settings.ecommerce.payment');
 
 
-
+    Route::post('/about','AboutController@update')->name('admin.about.update');
+    Route::post('/contact','ContactController@update')->name('admin.contact.update');
+    Route::post('/privacy','PrivacyController@update')->name('admin.privacy.update');
+    Route::post('/condition','ConditionController@update')->name('admin.condition.update');
 
 
     // profile 
@@ -165,6 +264,17 @@ Route::group([
 
 
 
+
+
+
+
+
+
+    // notification
+    Route::post('/order_notification','NotificationController@order')->name('admin.notification.order');
+
+
+    // cache 
 
 
      

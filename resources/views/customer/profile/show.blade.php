@@ -35,7 +35,7 @@
 							<li><b>Name:</b> {{Auth::user()->name}}</li>
 							<li><b>Email:</b> {{Auth::user()->email}}</li>
 							<li><b>Phone:</b> {{Auth::user()->phone}}</li>
-							<li><b>Website:</b> {{Auth::user()->website}}</li>
+							
 							<li><b>Address:</b> {{Auth::user()->address}}</li>
 						</ul>
 					</div>

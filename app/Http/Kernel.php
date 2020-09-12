@@ -67,6 +67,6 @@ class Kernel extends HttpKernel
         'customer' => \App\Http\Middleware\CheckCustomer::class,
         'user_type' => \App\Http\Middleware\CheckUserType::class,
         'settings' => \App\Http\Middleware\SettingsData::class,
-        'permission' => \App\Http\Middleware\Permission::class,
+        
     ];
 }

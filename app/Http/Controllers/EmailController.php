@@ -45,4 +45,22 @@ class EmailController extends Controller
 			'success' => 'Success'
 		]);
 	}
+
+
+	public function delete(Request $r){
+		$id = $r->id;
+
+		Email::find($id)->delete();
+
+		return response()->json([
+			'message' => 'Success'
+		]);
+	}
+
+
+
+	public function show($id){
+		$email = Email::findOrFail($id);
+		return view('admin.email.show',compact('email'));
+	}
 }

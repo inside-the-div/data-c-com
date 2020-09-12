@@ -12,9 +12,9 @@ class EcommerceSeeder extends Seeder
     public function run()
     {
     	$ecommerces = new Ecommerce;
-        $ecommerces->product_prefix = "Data-P-";
-        $ecommerces->order_prefix = "Data-O-";
-        $ecommerces->invoice_prefix = "Data-I-";
+        $ecommerces->product_prefix = "DoDO-P-";
+        $ecommerces->order_prefix = "DoDO-O-";
+        $ecommerces->invoice_prefix = "DoDO-I-";
         $ecommerces->shipping_cost_in_dhaka = 100;
         $ecommerces->shipping_cost_out_dhaka = 100;
         $ecommerces->save();

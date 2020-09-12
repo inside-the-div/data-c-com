@@ -11,7 +11,8 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        
+        // $category_list = ['Men','Women','Kids','Boys','Girl'];
+
         $category_list = [
             'boy',
             'girl',
@@ -26,6 +27,7 @@ class CategorySeeder extends Seeder
 
         	$cat->name = $category_list[$i];
         	$cat->slug = str_replace(" ","-",strtolower($category_list[$i]));
+        	$cat->image = str_replace(" ","-",strtolower($category_list[$i])).".jpg";
         	$cat->user_id = 1;
         	
         	$cat->save();

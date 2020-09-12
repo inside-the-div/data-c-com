@@ -27,7 +27,7 @@
 		    	    <a class="nav-item nav-link font-pt font-17" id="nav-social-tab" data-toggle="tab" href="#nav-social-settings" role="tab" aria-controls="nav-social-settings" aria-selected="true">Social Media</a>
 
 
-		    	    <a class="nav-item nav-link font-pt font-17" id="nav-ecommerce-tab" data-toggle="tab" href="#nav-ecommerce" role="tab" aria-controls="nav-ecommerce" aria-selected="false">E-Commerce Settings</a>
+		    	    {{-- <a class="nav-item nav-link font-pt font-17" id="nav-ecommerce-tab" data-toggle="tab" href="#nav-ecommerce" role="tab" aria-controls="nav-ecommerce" aria-selected="false">E-Commerce Settings</a> --}}
 		    	    
 		    	  </div>
 		    	</nav>
@@ -157,7 +157,7 @@
       	      	  	</form>
       	      	  </div> {{-- // end ecommerce settings --}}
 
-
+{{-- 
 		    	  <div class="tab-pane fade" id="nav-ecommerce" role="tabpanel" aria-labelledby="nav-ecommerce-tab">
 		    	  	<h3 class="font-20 font-pt my-3 text-center font-weight-bold">Update E-Commerce Settings</h3>
 		    	  	<hr>
@@ -176,7 +176,7 @@
 		    	  		</div>
 						<input type="submit" class="btn_1 mt-2 form-control" value="Update">
 		    	  	</form>
-		    	  </div> {{-- // end ecommerce settings --}}
+		    	  </div> --}} {{-- // end ecommerce settings --}}
 
 		    	</div> {{-- end tab pan --}}
 		   		

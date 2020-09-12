@@ -6,7 +6,7 @@
                 <div class="card-header clearfix">
                     <div class="float-left ">
                         
-                        <a href="/">Data-E-Shop</a>
+                        <a href="/">DoDo</a>
                     </div>
                     <div class="float-right ">
                          <a style="color:#333; padding: 0px 5px;" href="{{ route('login') }}">Login</a>

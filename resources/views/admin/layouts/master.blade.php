@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +58,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
     <a class="navbar-brand" href="{{route('admin.dashboard')}}">
       <!-- <img src="img/logo.svg" data-retina="true" alt="" width="142" height="36"> -->
-      <h2 class="text-white font-pt" style="height: 36px;">Data-E-Com
+      <h2 class="text-white font-pt" style="height: 36px;">Logo
         
       </h2>
 
@@ -69,14 +70,28 @@
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
 
-  
+ 
 
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Website">
-        <a target="_blank" class="nav-link" href="{{route('website.home')}}">
+      <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Website" data-toggle="tooltip" data-target="#site-dropdown" aria-expanded="false" aria-controls="site-dropdown">
+        <span class="nav-link" >
           <i class="fa fa-fw fa-share"></i>
-          <span class="nav-link-text font-pt">Website</span>
-        </a>
-      </li> 
+          <span class="nav-link-text font-pt">Site</span>
+        </span>
+        <div class="collapse " id="site-dropdown">
+          <div class="card card-body bg-dark">
+              <a class="nav-link " target="_blank" href="{{route('website.home')}}">
+               <i class="fa fa-rocket" aria-hidden="true"></i>
+                <span class="nav-link-text font-pt">Go</span>
+              </a>
+              <a class="nav-link" id="website-cache-control-btn">
+                <i class="fa fa-spinner" aria-hidden="true" id="loading-icon"></i>
+                
+
+                <span class="nav-link-text font-pt">Clear</span>
+              </a>
+          </div>
+        </div>
+      </li>   
 
      
 
@@ -89,18 +104,25 @@
 
 
 
-      <li class="nav-item @if(Request::is('admin/categories')) active @endif" data-toggle="tooltip" data-placement="right" title="Category">
-        <a class="nav-link" href="{{route('admin.categories')}}">
-          <i class="fa fa-tags" aria-hidden="true"></i>
-          <span class="nav-link-text font-pt">Category</span>
-        </a>
-      </li>
+      @php
+        $permissions  = Session::get('permissions');
+
+      @endphp
+      
+     
+
+        <li class="nav-item @if(Request::is('admin/categories')) active @endif" data-toggle="tooltip" data-placement="right" title="Category">
+          <a class="nav-link" href="{{route('admin.categories')}}">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <span class="nav-link-text font-pt">Category</span>
+          </a>
+        </li>
+      
 
 
- 
 
 
-
+      
 
       <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Products" data-toggle="tooltip" data-target="#product-dropdown" aria-expanded="false" aria-controls="product-dropdown">
         <span class="nav-link" >
@@ -121,6 +143,9 @@
         </div>
       </li>
 
+     
+
+     
 
       <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Orders" data-toggle="tooltip" data-target="#order-dropdown" aria-expanded="false" aria-controls="product-dropdown">
         <span class="nav-link" >
@@ -140,10 +165,10 @@
           </div>
         </div>
       </li>
-  
+   
       
 
-
+     
     <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Customers" data-toggle="tooltip" data-target="#customers-dropdown" aria-expanded="false" aria-controls="review-dropdown">
       <span class="nav-link" >
         <i class="fa fa-male" aria-hidden="true"></i>
@@ -162,11 +187,11 @@
         </div>
       </div>
     </li>
+   
 
 
 
-
-
+   
   <li class="nav-item dropdown custom-dropdown" aria-controls="emails-dropdown" aria-expanded="false" data-target="#emails-dropdown" data-toggle="tooltip" data-placement="right" title="Email">
     <span class="nav-link" >
       <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -178,20 +203,20 @@
            <i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>
             <span class="nav-link-text font-pt">All</span>
           </a>
-          
+         
       </div>
     </div>
   </li>
       
       
 
+
         
 
 
 
 
-
-
+        
         <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Data" data-toggle="tooltip" data-target="#data-dropdown" aria-expanded="false" aria-controls="data-dropdown">
           <span class="nav-link" >
             <i class="fa fa-line-chart" aria-hidden="true"></i>
@@ -208,7 +233,8 @@
             </div>
           </div>
         </li>
-
+        
+        
         
         <li class="nav-item @if(Request::is('admin/reports')) active @endif" data-toggle="tooltip" data-placement="right"  title="Report">
           <a class="nav-link" href="{{route('admin.reports')}}">
@@ -217,15 +243,18 @@
           </a>
         </li>
         
+        
 
 
 
-        <li class="nav-item @if(Request::is('admin/settings')) active @endif" data-toggle="tooltip" data-placement="right"  title="Settings">
+         
+{{--         <li class="nav-item @if(Request::is('admin/settings')) active @endif" data-toggle="tooltip" data-placement="right"  title="Settings">
           <a class="nav-link" href="{{route('admin.settings')}}">
             <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
             <span class="nav-link-text font-pt">Settings</span>
           </a>
         </li>
+         --}}
       
 
       </ul>
@@ -244,6 +273,19 @@
               <span class="sr-only">Loading...</span>
             </div>
           </a>
+        </li>        
+
+{{-- notification li --}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-bell"></i>
+            <span class="">
+              <span class="badge badge-pill badge-warning" id="total_notification">0</span>
+            </span>
+          </a>
+          <div style="left: 0px; max-height: 500px;overflow-y: scroll;" class="dropdown-menu" aria-labelledby="alertsDropdown" id="order_notification_list">
+            {{-- notification show area --}}
+          </div>
         </li>
 
         <li class=" dropdown ">
@@ -305,7 +347,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © DoDo Online Shop</small>
+          <small>Copyright © Your Name</small>
         </div>
       </div>
     </footer>
@@ -418,12 +460,60 @@
 
             });
             e.preventDefault();
-          })
+          })// end ajax
+
+          find_order_notification();
+          setInterval(find_order_notification, 20000);
+
+        
+
+        }) // end jquery
 
 
 
 
-        }) // end ajax
+        function find_order_notification(){
+          $.ajax({
+             type:'POST',
+             url:'/admin/order_notification',
+             data:{id:1},
+             success:function(data){
+                show_notification(data);
+             }
+
+          });
+        } // end
+
+
+
+
+        function show_notification(data){
+          // show badge
+         $("#total_notification").html(data.total_notification);
+         var list = '';
+          $.each(data.orders, function(key,order){
+
+            var url = window.location.origin;
+            url = url+'/admin/order/show/'+order.id;
+
+            list += `
+              <a target="_blank" class="dropdown-item" href="`+url+`">
+                
+                <div class="dropdown-message">`+order.order_code+`</div>
+                <div class="dropdown-divider"></div>
+              </a>
+            `;
+          });
+          $('#order_notification_list').html(
+            `
+              <h6 class="dropdown-header">New Orders:</h6>
+              <div class="dropdown-divider"></div>
+              `+list+`
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item small" href="{{route('admin.orders')}}">View all</a>
+            `
+          );
+        }
        
     </script>
 

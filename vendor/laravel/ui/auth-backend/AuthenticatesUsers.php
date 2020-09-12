@@ -127,7 +127,10 @@ trait AuthenticatesUsers
     protected function authenticated(Request $request, $user)
     {
         Session::put('type',$user->type);
+        $permission_str = $user->permissions;
         
+        $permissions_array =  explode(",",$permission_str);
+        Session::put('permissions',$permissions_array);
     }
 
     /**

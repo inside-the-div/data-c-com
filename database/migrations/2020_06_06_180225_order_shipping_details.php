@@ -22,6 +22,7 @@ class OrderShippingDetails extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('city');
+            $table->string('post_code')->nullable();
             $table->timestamps();
         });
     }

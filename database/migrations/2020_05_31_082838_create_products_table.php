@@ -27,16 +27,15 @@ class CreateProductsTable extends Migration
             $table->mediumText('description');
             $table->mediumText('attributes');
             $table->double('discount')->default(0.0);
-            // $table->double('shipping_cost')->default(0.0);
+            $table->double('shipping_cost')->default(0.0);
             $table->boolean('active')->default(0);
             $table->boolean('available')->default(1);
-            // $table->string('tag_line')->default('new');
-            // $table->boolean('home_show')->default(0);
+            $table->boolean('home_show')->default(0);
 
             //seo
-            // $table->mediumText('meta_tag')->nullable();
-            // $table->mediumText('meta_description')->nullable();
-            // $table->mediumText('meta_keyword')->nullable();
+            $table->mediumText('meta_tag')->nullable();
+            $table->mediumText('meta_description')->nullable();
+            $table->mediumText('meta_keyword')->nullable();
 
             $table->timestamps();
         });

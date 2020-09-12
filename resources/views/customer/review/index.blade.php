@@ -33,7 +33,9 @@
 				      <b>Details: </b>{{$review->details}} <br>
 				      <b>Star: </b>{{$review->star}}<br>
 				      
-				      <b>Product:<a target="_blank" class="text-dark"  href="{{route('website.single_product',['slug' => $review->product->slug])}}">{{$review->product->name}}</a></b> 
+				      <b>Product:<a target="_blank" class="text-dark"  href="/{{$review->product['slug']}}">
+				      		{{$review->product['slug']}}
+				      </a></b> 
 				  	</li>
 				  	@endif
 				  @endforeach
@@ -54,7 +56,9 @@
 				      <b>Details: </b>{{$review->details}} <br>
 				      <b>Star: </b>{{$review->star}}  <br>
 
-				      <b>Product: <a target="_blank" class="text-dark" href="{{route('website.single_product',['slug' => $review->product->slug])}}">{{$review->product->name}}</a></b>
+				     <b>Product:<a target="_blank" class="text-dark"  href="/{{$review->product['slug']}}">
+				     		{{$review->product['name']}}
+				     </a></b>-}}
 				  	</li>
 				  	@endif
 				  @endforeach

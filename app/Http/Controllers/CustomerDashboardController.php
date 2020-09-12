@@ -91,14 +91,48 @@ class CustomerDashboardController extends Controller
         $products_ids = DB::table('order_products')->where('order_id', $order->id)->get();
 
 
-        $products_id_array =  [];
-        $products_qty_array =  [];
+        // $products_id_array =  [];
+        // $products_qty_array =  [];
+        // foreach ($products_ids as $p) {
+        //     array_push($products_id_array, $p->product_id);
+        //     array_push($products_qty_array, $p->product_quantity);
+        // }
+
+        // $products = Product::whereIn('id',$products_id_array)->get();
+
+
+        
+        $products =  [];
+
         foreach ($products_ids as $p) {
-            array_push($products_id_array, $p->product_id);
-            array_push($products_qty_array, $p->product_quantity);
+
+
+        
+
+            $product = Product::find($p->product_id);
+
+            $temp_product =  array(
+
+                'id'        => $product->id, 
+                'slug'      => $product->slug, 
+                'name'      => $product->name, 
+                'code'      => $product->name, 
+                'image'     => $product->image, 
+                'price'     => $p->product_price, 
+                'date'      => $p->date, 
+                'quantity'  => $p->product_quantity
+            );
+
+            array_push($products, $temp_product);
+
         }
 
-        $products = Product::whereIn('id',$products_id_array)->get();
+
+
+
+
+
+
          
         return view('customer.order.show',compact('order','shipping','billing','products','products_qty_array'));
     }
@@ -197,6 +231,8 @@ class CustomerDashboardController extends Controller
         $total_reviews = $reviews->count();
 
 
+
+
         $pending_review = 0;
         $confirm_review = 0;
 
@@ -204,7 +240,7 @@ class CustomerDashboardController extends Controller
 
         foreach ($reviews as  $review) {
 
-
+            // dd($review->product);
             if($review->active == 1){
                 $confirm_review++;
             }else if($review->active == 0){

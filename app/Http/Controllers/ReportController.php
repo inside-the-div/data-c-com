@@ -11,9 +11,8 @@ class ReportController extends Controller
     	
 
 
-    	$start  = Carbon::today();
-    	$end    = Carbon::today();
-    	$orders = Order::whereDate('created_at', '>=', date($start))->whereDate('created_at', '<=', date($end))->get();
+    
+    	$orders = Order::all();
 
 
 

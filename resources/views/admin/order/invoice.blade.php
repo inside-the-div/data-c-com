@@ -110,7 +110,8 @@
 					<p>{{Session::get('email')}}</p>
 				</div>
 				<div class="logo-area">
-					<img src="{{Storage::url(Session::get('logo'))}}" alt="{{Session::get('title')}}" />
+					{{-- <img src="{{Storage::url(Session::get('logo'))}}" alt="{{Session::get('title')}}" /> --}}
+					<h1>LOGO</h1>
 				</div>
 			</div>
 
